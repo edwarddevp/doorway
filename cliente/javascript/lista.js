@@ -85,7 +85,6 @@ const stopTableLoading = () => {
 
 const fillTable = () => {
     clientes.map((cliente)=>{
-        console.log(cliente.name)
         const newtr = document.createElement("tr"); 
         const tdId = document.createElement("td"); 
         tdId.innerHTML = cliente.id
@@ -100,7 +99,7 @@ const fillTable = () => {
 
         const newButtonContainer = document.createElement("div"); 
         const newButtonEdit = document.createElement("button"); 
-        newButtonEdit.onclick = () => alert(cliente.name);
+        newButtonEdit.onclick = () => sendQueryId(cliente.id);
         newButtonEdit.classList.add('btn')
         newButtonEdit.classList.add('btn-outline-primary')
         newButtonEdit.classList.add('btn-sm')
@@ -133,11 +132,15 @@ const fillTable = () => {
         newtr.appendChild(tdJoined);
         newtr.appendChild(tdButtons);
 
-        console.log(newtr)
         tbody.appendChild(newtr)
     })
     feather.replace()
     $('#dataTable').DataTable({
             "pagingType": 'first_last_numbers'
     })
+}
+
+const sendQueryId = (id) => {
+    const url = '/cliente/editar/?id=' + id;
+    window.location.replace(url);
 }
