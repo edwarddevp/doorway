@@ -1,0 +1,5 @@
+const name = document.getElementById('name')
+const cedula = document.getElementById('cedula')
+const direccion = document.getElementById('direccion')
+const email = document.getElementById('email')
+const submitButton = getElementById('submit')
