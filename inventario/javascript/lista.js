@@ -141,6 +141,6 @@ const fillTable = () => {
 }
 
 const sendQueryId = (id) => {
-    const url = '/cliente/editar/?id=' + id;
+    const url = '/inventario/editar-producto/?id=' + id;
     window.location.replace(url);
 }
