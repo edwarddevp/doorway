@@ -59,9 +59,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/cliente">
+                            <a class="nav-link" href="/cliente">
                                 <span data-feather="shopping-cart"></span>
-                                Lista de Clientes<span class="sr-only">(current)</span>
+                                Lista de Clientes
                             </a>
                         </li>
 
@@ -140,9 +140,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/inventario">
+                            <a class="nav-link active" href="/inventario">
                                 <span data-feather="box"></span>
-                                Lista de Productos
+                                Lista de Productos<span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -198,11 +198,11 @@
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                    <h1 class="h2">Clientes</h1>
+                    <h1 class="h2">Productos</h1>
                 </div>
 
                 <p class="lead mb-5">
-                    Lista de todos los usuarios registrados:
+                    Lista de todos los productos registrados:
                   </p>
                 
                 <div id='dataTableContainer' class="table-responsive display-none">
@@ -210,9 +210,10 @@
                         <thead>
                             <tr class="thead-dark">
                                 <th>#</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>joined</th>
+                                <th>Nombre</th>
+                                <th>Descripcion</th>
+                                <th>Cantidad</th>
+                                <th>Serial</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>

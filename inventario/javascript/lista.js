@@ -90,10 +90,12 @@ const fillTable = () => {
         tdId.innerHTML = cliente.id
         const tdName = document.createElement("td"); 
         tdName.innerHTML = cliente.name
-        const tdEmail = document.createElement("td"); 
-        tdEmail.innerHTML = cliente.email
-        const tdJoined = document.createElement("td"); 
-        tdJoined.innerHTML = cliente.joined
+        const tdDescription = document.createElement("td"); 
+        tdDescription.innerHTML = cliente.email
+        const tdCantidad = document.createElement("td"); 
+        tdCantidad.innerHTML = cliente.joined
+        const tdSerial = document.createElement("td"); 
+        tdSerial.innerHTML = cliente.joined
         
         const tdButtons = document.createElement("td"); 
 
@@ -128,8 +130,9 @@ const fillTable = () => {
 
         newtr.appendChild(tdId);
         newtr.appendChild(tdName);
-        newtr.appendChild(tdEmail);
-        newtr.appendChild(tdJoined);
+        newtr.appendChild(tdDescription);
+        newtr.appendChild(tdCantidad);
+        newtr.appendChild(tdSerial);
         newtr.appendChild(tdButtons);
 
         tbody.appendChild(newtr)

@@ -197,12 +197,12 @@
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                    <h1 class="h2">Edita Cliente</h1>
+                    <h1 class="h2">Editar Producto</h1>
                 </div>
 
                 <p class="lead">
                     Crear cliente para habilitarlo a realizar compartiremos
-                  </p>
+                  </p>              
                   <div class="row">
                     <form id='edit-product-form' class='col-md-12 col-lg-8 col-xl-5' novalidate>
                         <div class="form-group">
@@ -213,15 +213,8 @@
                               </div>
                           </div>
                           <div class="form-group">
-                            <label for="cantidad">Cantidad</label>
-                            <input type="number" aria-describedby="cantidadHelp" required class="form-control" id="cantidad" placeholder="Cantidad">
-                            <small id="cantidadHelp" class="form-text text-muted mb-2">Ingrese la cantidad inicial de que posee el producto.</small>
-                            <div class="invalid-feedback">
-                                Por favor ingrese la cantidad inicial
-                          </div>
-                          <div class="form-group">
                             <label for="serial">Serial</label>
-                            <input type="text" required class="form-control" id="serial" placeholder="Direccion">
+                            <input type="number" required class="form-control" id="serial" placeholder="Serial">
                             <div class="invalid-feedback">
                                 Por favor ingrese el serial del producto
                               </div>
@@ -231,6 +224,9 @@
                           <textarea class="form-control" id="description" aria-describedby="descriptionHelp" placeholder="Descripcion"></textarea>
                           <small id="descriptionHelp" class="form-text text-muted">Breve descripcion del producto.</small>
                         </div>
+                        <p>
+                            Si desea añadir a la cantidad por favor ir a la seccion de <a href='/inventario/crear-orden-de-compra/'>crear orden de compra</a>
+                          </p>
                         <button id='submit' type="submit" class="btn btn-primary">Crear Producto</button>
                       </form>
                 </div>
