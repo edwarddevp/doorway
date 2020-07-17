@@ -1,6 +1,6 @@
 const name = document.getElementById('name')
 const cantidad = document.getElementById('cantidad')
-const serial = document.getElementById('serial')
+const precio = document.getElementById('precio')
 const description = document.getElementById('description')
 const submitButton = document.getElementById('submit')
 const form = document.getElementById('create-product-form')
@@ -9,12 +9,22 @@ submitButton.addEventListener('click',(e)=>{
     e.preventDefault()
     if (form.checkValidity() === false) {
         event.stopPropagation();
-        console.log('hola')
     }else{
-        console.log('name: ' + name.value)
-        console.log('cantidad: ' + cantidad.value)
-        console.log('serial: ' + serial.value)
-        console.log('description: ' + description.value)
+        fetch('http://localhost:3000/product-create',{
+            method: 'POST',
+            body: JSON.stringify({
+                nombre:name.value,
+                cantidad:cantidad.value,
+                precio:precio.value,
+                descripcion:description.value,
+            }), 
+            headers:{
+              'Content-Type': 'application/json'
+            }}).then(res=>res.json())
+            .then(resJson=>{
+                alert(resJson)
+                window.location.replace("/inventario");
+            })
     }
     form.classList.add('was-validated');
 })

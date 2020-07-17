@@ -1,99 +1,63 @@
-const clientes = [
-    {
-        id:'1',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'2',
-        name:'lorem2',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'3',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'4',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'5',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'6',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'7',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'8',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'9',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'10',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'11',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-]
-
 const dataTable = document.getElementById('dataTable');
 const dataTableContainer = document.getElementById('dataTableContainer');
 const tbody = document.getElementById('tbody');
 const loading = document.getElementById('loading');
+let table = '';
 
-setTimeout(()=>{
+window.onload = function() {
     fillTable()
-    stopTableLoading()
-},2000)
+  };
 
-
-const stopTableLoading = () => {
-    dataTableContainer.classList.toggle('display-none')
-    loading.classList.toggle('display-none')
+const remove = async (client) => {
+    if(confirm('De verdad que quieres eliminar este cliente?\nno lo podras recuperar una vez eliminado')){
+        const res = await fetch('http://localhost:3000/client-remove',{
+            method: 'POST',
+            body: JSON.stringify({id:client.id}), 
+            headers:{
+              'Content-Type': 'application/json'
+            }})
+        const resJson = await res.json();
+        alert(resJson)
+        fillTable()
+    }
 }
 
-const fillTable = () => {
-    clientes.map((cliente)=>{
-        const newtr = document.createElement("tr"); 
+const stopTableLoading = () => {
+    dataTableContainer.classList.remove('display-none')
+    loading.classList.add('display-none')
+}
+
+const startTableLoading = () => {
+    dataTableContainer.classList.add('display-none')
+    loading.classList.remove('display-none')
+}
+
+const fillTable = async () => {
+    startTableLoading()
+
+    table && table.state.clear()
+
+    while (tbody.firstChild) {
+        tbody.removeChild(tbody.lastChild);
+    }
+
+    const res = await fetch('http://localhost:3000/client-list')
+    const resJson = await res.json();
+
+    if(resJson.length > 0) {
+    resJson.map((cliente)=>{
+        const newtr = document.createElement("tr");
+
         const tdId = document.createElement("td"); 
         tdId.innerHTML = cliente.id
         const tdName = document.createElement("td"); 
-        tdName.innerHTML = cliente.name
+        tdName.innerHTML = cliente.nombre
+        const tdCedula = document.createElement("td"); 
+        tdCedula.innerHTML = cliente.cedula
         const tdEmail = document.createElement("td"); 
-        tdEmail.innerHTML = cliente.email
-        const tdJoined = document.createElement("td"); 
-        tdJoined.innerHTML = cliente.joined
+        tdEmail.innerHTML = cliente.correo
+        const tdDirection = document.createElement("td"); 
+        tdDirection.innerHTML = cliente.direccion
         
         const tdButtons = document.createElement("td"); 
 
@@ -111,7 +75,7 @@ const fillTable = () => {
         newButtonEdit.appendChild(iconEdit)
 
         const newButtonRemove = document.createElement("button"); 
-        newButtonRemove.onclick = () => alert(cliente.name);
+        newButtonRemove.onclick = () => remove(cliente);
         newButtonRemove.classList.add('btn')
         newButtonRemove.classList.add('btn-outline-danger')
         newButtonRemove.classList.add('btn-sm')
@@ -128,16 +92,22 @@ const fillTable = () => {
 
         newtr.appendChild(tdId);
         newtr.appendChild(tdName);
+        newtr.appendChild(tdCedula);
         newtr.appendChild(tdEmail);
-        newtr.appendChild(tdJoined);
+        newtr.appendChild(tdDirection);
         newtr.appendChild(tdButtons);
 
         tbody.appendChild(newtr)
     })
     feather.replace()
-    $('#dataTable').DataTable({
-            "pagingType": 'first_last_numbers'
-    })
+    // table = $('#dataTable').DataTable({
+    //     destroy: true,
+    //     "pagingType": 'first_last_numbers'
+    // })
+
+    console.log(table)
+}
+    stopTableLoading()
 }
 
 const sendQueryId = (id) => {

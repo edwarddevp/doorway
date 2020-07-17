@@ -11,10 +11,21 @@ submitButton.addEventListener('click',(e)=>{
         event.stopPropagation();
         console.log('hola')
     }else{
-        console.log('Nombre: ' + name.value)
-        console.log('Cedula: ' + cedula.value)
-        console.log('Direccion: ' + direccion.value)
-        console.log('Correo: ' + email.value)
+        fetch('http://localhost:3000/client-create',{
+            method: 'POST',
+            body: JSON.stringify({
+                nombre:name.value,
+                cedula:cedula.value,
+                direccion:direccion.value,
+                correo:email.value,
+            }), 
+            headers:{
+              'Content-Type': 'application/json'
+            }}).then(res=>res.json())
+            .then(resJson=>{
+                alert(resJson)
+                window.location.replace("/cliente");
+            })
     }
     form.classList.add('was-validated');
 })

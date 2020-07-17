@@ -67,10 +67,10 @@ const fillTable = async (initialDate,finalDate) => {
         feather.replace()
 
 
-        table = $('#dataTable').DataTable({
-            destroy: true,
-            "pagingType": 'first_last_numbers'
-        })
+        // table = $('#dataTable').DataTable({
+        //     destroy: true,
+        //     "pagingType": 'first_last_numbers'
+        // })
     }
 
     

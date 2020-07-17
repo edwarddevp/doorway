@@ -13,31 +13,42 @@ submitButton.addEventListener('click',(e)=>{
         event.stopPropagation();
         console.log('hola')
     }else{
-        console.log('Nombre: ' + name.value)
-        console.log('Cedula: ' + cedula.value)
-        console.log('Direccion: ' + direccion.value)
-        console.log('Correo: ' + email.value)
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        fetch('http://localhost:3000/client-update',{
+            method: 'POST',
+            body: JSON.stringify({
+                id:id,
+                nombre:name.value,
+                cedula:cedula.value,
+                direccion:direccion.value,
+                correo:email.value,
+            }), 
+            headers:{
+              'Content-Type': 'application/json'
+            }}).then(res=>res.json())
+            .then(resJson=>{
+                alert(resJson)
+                window.location.replace("/cliente");
+            })
     }
     form.classList.add('was-validated');
 })
 
 
-window.addEventListener('load', function () {
+window.addEventListener('load', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
-    console.log(id)
+    
+    const res = await fetch('http://localhost:3000/client-get/'+id)
+    const resJson = await res.json()
 
-    const cliente ={
-        name:'cliente',
-        cedula:'51265123',
-        email:'email@email.com',
-        direccion:'asdsadxsacsajbcjsahb'
-    }
 
-    name.value = cliente.name
-    cedula.value = cliente.cedula
-    direccion.value = cliente.direccion
-    email.value = cliente.email
+
+    name.value = resJson.nombre
+    cedula.value = resJson.cedula
+    direccion.value = resJson.direccion
+    email.value = resJson.correo
 
     submitButton.toggleAttribute('disabled')
     buttonLoading.classList.add('display-none')
