@@ -78,12 +78,7 @@
                                 Nuevo
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/facturacion">
-                                <span data-feather="users"></span>
-                                Consultar
-                            </a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="/facturacion">
                                 <span data-feather="bar-chart-2"></span>
@@ -105,12 +100,7 @@
                                 Reportes
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/reportes">
-                                <span data-feather="bar-chart-2"></span>
-                                Reimprimir una factura
-                            </a>
-                        </li>
+
 
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -194,15 +184,8 @@
                   <div class="row">
                 <form id='create-order-form' class='col-md-12 col-lg-8 col-xl-5' novalidate>
                     <div class="form-group">
-                        <label for="name">Producto</label>
-                        <select required class="form-control" aria-describedby="emailHelp" id="idProducto">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option value="1"> Option1 </option>
-                            <option value="2"> Option2 </option>
+                        <label for="selectProductos">Producto</label>
+                        <select required class="form-control" aria-describedby="productoHelp" id="selectProductos">
                           </select>
                           <small id="productoHelp" class="form-text text-muted">Escoja el producto al cual se le realizara la orden.</small>
                         <div class="invalid-feedback">
@@ -210,8 +193,8 @@
                           </div>
                       </div>
                       <div class="form-group">
-                        <label for="cedula">Fecha de en que se reciben los productos</label>
-                        <input type="date" required class="form-control" id="date">
+                        <label for="fechaDeEntrega">Fecha de en que se reciben los productos</label>
+                        <input type="date" required class="form-control" id="fechaDeEntrega">
                         <div class="invalid-feedback">, 
                             Por favor ingrese la fecha en la que se recibira o recibieron los productos
                           </div>

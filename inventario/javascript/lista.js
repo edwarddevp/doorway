@@ -1,107 +1,64 @@
-const clientes = [
-    {
-        id:'1',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'2',
-        name:'lorem2',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'3',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'4',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'5',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'6',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'7',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'8',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'9',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'10',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-    {
-        id:'11',
-        name:'lorem',
-        email:'lorem@gmail.com',
-        joined:'14/05/2000'
-    },
-]
-
 const dataTable = document.getElementById('dataTable');
 const dataTableContainer = document.getElementById('dataTableContainer');
 const tbody = document.getElementById('tbody');
 const loading = document.getElementById('loading');
 
-setTimeout(()=>{
+window.onload = function() {
     fillTable()
-    stopTableLoading()
-},2000)
+  };
 
-
-const stopTableLoading = () => {
-    dataTableContainer.classList.toggle('display-none')
-    loading.classList.toggle('display-none')
+const remove = async (item) => {
+    if(confirm('De verdad que quieres eliminar este item?\nno lo podras recuperar una vez eliminado')){
+        const res = await fetch('http://localhost:3000/product-remove',{
+            method: 'POST',
+            body: JSON.stringify({id:item.id}), 
+            headers:{
+              'Content-Type': 'application/json'
+            }})
+        const resJson = await res.json();
+        alert(resJson)
+        fillTable()
+    }
 }
 
-const fillTable = () => {
-    clientes.map((cliente)=>{
+const stopTableLoading = () => {
+    dataTableContainer.classList.remove('display-none')
+    loading.classList.add('display-none')
+}
+
+const startTableLoading = () => {
+    dataTableContainer.classList.add('display-none')
+    loading.classList.remove('display-none')
+}
+const fillTable = async () => {
+    startTableLoading
+
+    while (tbody.firstChild) {
+        tbody.removeChild(tbody.lastChild);
+    }
+
+    const res = await fetch('http://localhost:3000/product-list')
+    const resJson = await res.json();
+
+    if(resJson.length > 0) {
+    resJson.map((item)=>{
         const newtr = document.createElement("tr"); 
         const tdId = document.createElement("td"); 
-        tdId.innerHTML = cliente.id
+        tdId.innerHTML = item.id
         const tdName = document.createElement("td"); 
-        tdName.innerHTML = cliente.name
+        tdName.innerHTML = item.nombre
         const tdDescription = document.createElement("td"); 
-        tdDescription.innerHTML = cliente.email
+        tdDescription.innerHTML = item.descripcion
         const tdCantidad = document.createElement("td"); 
-        tdCantidad.innerHTML = cliente.joined
-        const tdSerial = document.createElement("td"); 
-        tdSerial.innerHTML = cliente.joined
+        tdCantidad.innerHTML = item.cantidad
+        const tdPrecio = document.createElement("td"); 
+        tdPrecio.innerHTML = item.precio +'$'
         
         const tdButtons = document.createElement("td"); 
 
         const newButtonContainer = document.createElement("div"); 
         const newButtonEdit = document.createElement("button"); 
-        newButtonEdit.onclick = () => sendQueryId(cliente.id);
+        newButtonEdit.onclick = () => sendQueryId(item.id);
         newButtonEdit.classList.add('btn')
         newButtonEdit.classList.add('btn-outline-primary')
         newButtonEdit.classList.add('btn-sm')
@@ -113,7 +70,7 @@ const fillTable = () => {
         newButtonEdit.appendChild(iconEdit)
 
         const newButtonRemove = document.createElement("button"); 
-        newButtonRemove.onclick = () => alert(cliente.name);
+        newButtonRemove.onclick = () => remove(item);
         newButtonRemove.classList.add('btn')
         newButtonRemove.classList.add('btn-outline-danger')
         newButtonRemove.classList.add('btn-sm')
@@ -132,15 +89,17 @@ const fillTable = () => {
         newtr.appendChild(tdName);
         newtr.appendChild(tdDescription);
         newtr.appendChild(tdCantidad);
-        newtr.appendChild(tdSerial);
+        newtr.appendChild(tdPrecio);
         newtr.appendChild(tdButtons);
 
         tbody.appendChild(newtr)
     })
     feather.replace()
-    $('#dataTable').DataTable({
-            "pagingType": 'first_last_numbers'
-    })
+    // $('#dataTable').DataTable({
+    //         "pagingType": 'first_last_numbers'
+    // })
+    }
+    stopTableLoading()
 }
 
 const sendQueryId = (id) => {

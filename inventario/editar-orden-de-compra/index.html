@@ -53,13 +53,13 @@
 
                         <li class="nav-item">
                             <a class="nav-link active" href="/cliente/crear" target=>
-                                <span data-feather="plus"></span>
+                                <span data-feather="file"></span>
                                 Añadir cliente <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/cliente">
-                                <span data-feather="list"></span>
+                                <span data-feather="shopping-cart"></span>
                                 Lista de Clientes
                             </a>
                         </li>
@@ -78,12 +78,7 @@
                                 Nuevo
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/facturacion">
-                                <span data-feather="users"></span>
-                                Consultar
-                            </a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="/facturacion">
                                 <span data-feather="bar-chart-2"></span>
@@ -105,12 +100,7 @@
                                 Reportes
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/reportes">
-                                <span data-feather="bar-chart-2"></span>
-                                Reimprimir una factura
-                            </a>
-                        </li>
+
 
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -185,44 +175,41 @@
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                    <h1 class="h2">Crear Cliente</h1>
+                    <h1 class="h2">Edita Cliente</h1>
                 </div>
 
                 <p class="lead">
                     Crear cliente para habilitarlo a realizar compartiremos
                   </p>
                   <div class="row">
-                <form id='create-user-form' class='col-md-12 col-lg-8 col-xl-5' novalidate>
+                <form id='edit-user-form' class='col-md-12 col-lg-8 col-xl-5' novalidate>
                     <div class="form-group">
-                        <label for="name">Nombre</label>
-                        <input type="text" required class="form-control" id="name" placeholder="Nombre">
+                        <label for="selectProductos">Producto</label>
+                        <select required class="form-control" aria-describedby="productoHelp" id="selectProductos">
+                          </select>
+                          <small id="productoHelp" class="form-text text-muted">Escoja el producto al cual se le realizara la orden.</small>
                         <div class="invalid-feedback">
-                            Por favor ingrese su Nombre
+                            Por favor elija un producto al cual agregarle items.
                           </div>
                       </div>
                       <div class="form-group">
-                        <label for="cedula">Cedula</label>
-                        <input type="text" required class="form-control" id="cedula" placeholder="Cedula">
-                        <div class="invalid-feedback">
-                            Por favor ingrese su Cedula
+                        <label for="fechaDeEntrega">Fecha de en que se reciben los productos</label>
+                        <input type="date" required class="form-control" id="fechaDeEntrega">
+                        <div class="invalid-feedback">, 
+                            Por favor ingrese la fecha en la que se recibira o recibieron los productos
                           </div>
                       </div>
                       <div class="form-group">
-                        <label for="direccion">Direccion</label>
-                        <input type="text" required class="form-control" id="direccion" placeholder="Direccion">
+                        <label for="cantidad">Cantidad del producto a recibir</label>
+                        <input type="number" required class="form-control" id="cantidad" placeholder="Cantidad">
                         <div class="invalid-feedback">
-                            Por favor ingrese su Direccion
+                            Ingrese la cantidad de los productos a recibir
                           </div>
                       </div>
-                    <div class="form-group">
-                      <label for="email">Correo</label>
-                      <input type="email" required class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-                      <small id="emailHelp" class="form-text text-muted">Nosotros nunca compartiremos su email.</small>
-                      <div class="invalid-feedback">
-                        Por favor ingrese un correo electronico valido valido
-                      </div>
-                    </div>
-                    <button id='submit' type="submit" class="btn btn-primary">Crear Cliente</button>
+                    <button id='submit' type="submit" class="btn btn-primary d-flex align-items-center" disabled>
+                        <div id='buttonLoading' class="spinner-border spinner-border-sm mr-2"  role="status">
+                            <span class="sr-only">Loading...</span>
+                          </div>Guardar Cambios</button>
                   </form>
                 </div>
             </main>
@@ -234,7 +221,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
     <script src="../../javascript/Charts/dashboard.js"></script>
-    <script src="../javascript/crear.js"></script>
+    <script src="../javascript/editar-orden.js"></script>
 </body>
 
 </html>

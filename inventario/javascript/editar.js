@@ -1,6 +1,6 @@
 const name = document.getElementById('name')
 const cantidad = document.getElementById('cantidad')
-const serial = document.getElementById('serial')
+const precio = document.getElementById('precio')
 const description = document.getElementById('description')
 const submitButton = document.getElementById('submit')
 const form = document.getElementById('edit-product-form')
@@ -11,32 +11,40 @@ submitButton.addEventListener('click',(e)=>{
     e.preventDefault()
     if (form.checkValidity() === false) {
         event.stopPropagation();
-        console.log('hola')
     }else{
-        console.log('name: ' + name.value)
-        console.log('cantidad: ' + cantidad.value)
-        console.log('serial: ' + serial.value)
-        console.log('description: ' + description.value)
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        fetch('http://localhost:3000/product-update',{
+            method: 'POST',
+            body: JSON.stringify({
+                id:id,
+                nombre:name.value,
+                precio:precio.value,
+                descripcion:description.value,
+            }), 
+            headers:{
+              'Content-Type': 'application/json'
+            }}).then(res=>res.json())
+            .then(resJson=>{
+                alert(resJson)
+                if(resJson!=='Formulario Llenado Incorrectamente')
+                window.location.replace("/inventario");
+            })
     }
     form.classList.add('was-validated');
 })
 
 
-window.addEventListener('load', function () {
+window.addEventListener('load', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
     
-    const producto ={
-        name:'producto',
-        cantidad:'45',
-        serial:'12457895563',
-        description:'asdsadxsacsajbcjsahb'
-    }
+    const res = await fetch('http://localhost:3000/product-get/'+id)
+    const resJson = await res.json()
 
-    name.value = producto.name
-    cantidad.value = producto.cantidad
-    serial.value = producto.serial
-    description.value = producto.description
+    name.value = resJson.nombre
+    precio.value = resJson.precio
+    description.value = resJson.descripcion
 
     submitButton.toggleAttribute('disabled')
     buttonLoading.classList.add('display-none')
