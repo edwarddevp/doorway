@@ -27,6 +27,7 @@ submitButton.addEventListener('click',(e)=>{
             }}).then(res=>res.json())
             .then(resJson=>{
                 alert(resJson)
+                if(resJson!=='Formulario Llenado Incorrectamente')
                 window.location.replace("/inventario");
             })
     }
