@@ -74,11 +74,13 @@ const fillSelect = async () => {
     buttonLoading.classList.add('display-none')
 
     resJson.map(item => {
-        const options = document.createElement("option");
-        options.innerHTML = item.nombre;
-        options.value = item.id
+         if(item.cantidad > 0) {
+            const options = document.createElement("option");
+            options.innerHTML = item.nombre;
+            options.value = item.id
 
-        selectProduct.appendChild(options)
+            selectProduct.appendChild(options)
+        }
     })
 
     $('.js-example-basic-single').select2({
@@ -228,7 +230,7 @@ submitButton.addEventListener("click", async (e) => {
                     method: 'POST',
                     body: JSON.stringify({
                         idCliente: resCheckClient.id,
-                        productoIds: itemsChosen.map(item=>item.id)
+                        productoIds: itemsChosen.map(item => item.id)
                     }),
                     headers: {
                         'Content-Type': 'application/json'
@@ -242,7 +244,7 @@ submitButton.addEventListener("click", async (e) => {
             const tdName = document.createElement("p");
             tdName.innerHTML = "Productos no elegidos"
             tdName.style = 'color:red;'
-    
+
             productWarning.appendChild(tdName)
         }
     } else {
