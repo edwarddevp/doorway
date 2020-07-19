@@ -26,7 +26,7 @@
         
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Sign out</a>
+                <a id='sign-out' class="nav-link" href="#">Sign out</a>
             </li>
         </ul>
     </nav>
@@ -167,208 +167,27 @@
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                    <h1 class="h2">Clientes</h1>
+                    <h1 class="h2">Acerca de...</h1>
                 </div>
 
+                <p class="lead">Acerca de nuestra empresa, quienes somos y lo que hacemos.</p>
 
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Busqueda de usuario</label>
-                    <div class="row">
-                        <div class="col">
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Nombre o Correo">
-                            <small id="emailHelp" class="form-text text-muted ml-1">Escriba su nombre o correo.</small>
-                        </div>
-                        <div class="col">
-                            <button type="submit" class="btn btn-primary mb-2">Search</button>
-                        </div>
-                    </div>
-                </div>
+                <h5>Vision:</h5>
+                <p class="lead">Tener una estación de trabajo que funcione con nuestro software en cada escritorio y en cada organización.</p>
 
-                <div class=" container table-responsive">
-                    <table class="table table-striped table-sm table-bordered table-hover">
-                        <thead>
-                            <tr class="thead-dark">
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>joined</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                                <td>ipsum</td>
-                                <td>dolor</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,002</td>
-                                <td>amet</td>
-                                <td>consectetur</td>
-                                <td>adipiscing</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,003</td>
-                                <td>Integer</td>
-                                <td>nec</td>
-                                <td>odio</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,003</td>
-                                <td>libero</td>
-                                <td>Sed</td>
-                                <td>cursus</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,004</td>
-                                <td>dapibus</td>
-                                <td>diam</td>
-                                <td>Sed</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,005</td>
-                                <td>Nulla</td>
-                                <td>quis</td>
-                                <td>sem</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,006</td>
-                                <td>nibh</td>
-                                <td>elementum</td>
-                                <td>imperdiet</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,007</td>
-                                <td>sagittis</td>
-                                <td>ipsum</td>
-                                <td>Praesent</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,008</td>
-                                <td>Fusce</td>
-                                <td>nec</td>
-                                <td>tellus</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,009</td>
-                                <td>augue</td>
-                                <td>semper</td>
-                                <td>porta</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,010</td>
-                                <td>massa</td>
-                                <td>Vestibulum</td>
-                                <td>lacinia</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,011</td>
-                                <td>eget</td>
-                                <td>nulla</td>
-                                <td>Class</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </main>
+                <h5>Misión:</h5>
+                <p class="lead">Creemos en lo que las personas hacen posible, nuestra misión es dotar de medios a todas las personas y organizaciones del mundo para que sean más productivas
+                    ¿Quienes somos? Conoce a nuestro equipo de desarrolladores</p>
+
+                    <h5>Integrantes:</h5>
+                    <ul>
+                        <li class='lead mb-2'><Strong>José Antonio:</Strong><br>		Programador del Software</li>
+                        <li class='lead mb-2'><Strong>Edward Bocaranda:</Strong><br> 	Director del Proyecto, Programador del Software</li>
+                        <li class='lead mb-2'><Strong>Jeremy Rodríguez:</Strong><br> 	Diseñador Grafico, Programador del Software, </li>
+                        <li class='lead mb-2'><Strong>Diego González:</Strong><br> 	Programador del Software</li>
+                        <li class='lead mb-2'><Strong>Diana Isea</Strong>:	<br>		Programadora del Software</li>
+                    </ul>
+                </main>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -378,6 +197,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script src="../../javascript/Charts/dashboard.js"></script>
+    <script>
+        const hola = `1.0.- 
+
+7.0.- 
+7.1.-
+
+Misión: 
+
+
+
+
+
+
+
+Visión: 
+
+7.2.- Manual de Usuario
+Se puede ver aquí el Manual de Usuario para el cajero de cómo utilizar nuestro Software
+8.0.- Salida
+Opción que permite salir del sistema de DoorWay, y asi finalizar la jornada por el día laboral.
+
+
+`
+
+    </script>
 </body>
 
 </html>

@@ -23,10 +23,10 @@
             data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Sign out</a>
+                <a id='sign-out' class="nav-link" href="#">Sign out</a>
             </li>
         </ul>
     </nav>
@@ -39,22 +39,23 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/">
                                 <span data-feather="home"></span>
-                                Inicio 
+                                Inicio
                             </a>
                         </li>
-        
+
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                             <span>Cliente</span>
-                            <a class="d-flex align-items-center text-muted" href="/cliente/crear" aria-label="Add a  new client">
+                            <a class="d-flex align-items-center text-muted" href="/cliente/crear"
+                                aria-label="Add a  new client">
                                 <span data-feather="plus-circle"></span>
                             </a>
                         </h6>
-        
+
                         <li class="nav-item">
                             <a class="nav-link " href="/cliente/crear" target=>
                                 <span data-feather="plus"></span>
-                                Añadir cliente 
+                                Añadir cliente
                             </a>
                         </li>
                         <li class="nav-item">
@@ -63,7 +64,7 @@
                                 Lista de Clientes
                             </a>
                         </li>
-        
+
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                             <span>Facturacion</span>
@@ -71,43 +72,44 @@
                                 <span data-feather="plus-circle"></span>
                             </a>
                         </h6>
-        
+
                         <li class="nav-item">
                             <a class="nav-link" href="/facturacion">
                                 <span data-feather="shopping-cart"></span>
                                 Nuevo
                             </a>
                         </li>
-        
+
                         <li class="nav-item">
                             <a class="nav-link" href="/facturacion/anular">
                                 <span data-feather="x-square"></span>
                                 Anular
                             </a>
                         </li>
-        
+
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                             <span>Reportes</span>
 
                         </h6>
-        
+
                         <li class="nav-item">
                             <a class="nav-link" href="/reportes">
                                 <span data-feather="bar-chart"></span>
                                 Reportes
                             </a>
                         </li>
-        
-        
+
+
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                             <span>Inventario</span>
-                            <a class="d-flex align-items-center text-muted" href="/inventario/crear-producto" aria-label="Add a new product">
+                            <a class="d-flex align-items-center text-muted" href="/inventario/crear-producto"
+                                aria-label="Add a new product">
                                 <span data-feather="plus-circle"></span>
                             </a>
                         </h6>
-        
+
                         <li class="nav-item">
                             <a class="nav-link" href="/inventario/crear-producto">
                                 <span data-feather="plus"></span>
@@ -132,24 +134,24 @@
                                 Manejar ordennes de compra
                             </a>
                         </li>
-        
+
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                             <span>Mantenimiento</span>
                         </h6>
-        
+
                         <li class="nav-item">
                             <a class="nav-link" href="/mantenimiento">
                                 <span data-feather="database"></span>
                                 Respaldos
                             </a>
                         </li>
-        
+
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                             <span>Ayuda</span>
                         </h6>
-        
+
                         <li class="nav-item">
                             <a class="nav-link active" href="/ayuda/manual-de-usuario">
                                 <span data-feather="book"></span>
@@ -159,7 +161,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/ayuda/acerca-de">
                                 <span data-feather="book-open"></span>
-                                Acerca de... 
+                                Acerca de...
                             </a>
                         </li>
                 </div>
@@ -167,217 +169,129 @@
 
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                    <h1 class="h2">Clientes</h1>
+                    <h1 class="h2">Manual de usuario</h1>
                 </div>
 
 
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Busqueda de usuario</label>
-                    <div class="row">
-                        <div class="col">
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Nombre o Correo">
-                            <small id="emailHelp" class="form-text text-muted ml-1">Escriba su nombre o correo.</small>
-                        </div>
-                        <div class="col">
-                            <button type="submit" class="btn btn-primary mb-2">Search</button>
-                        </div>
+                <div id='text' class="text">
+                    <p class='lead'>Manual donde se especifica la funcion de cada una de las funciones de doorway</p>
+                    <hr>
+                    <div class='d-flex mb-4'>
+                        <div class='mr-2'>1.-</div>
+                        <div><Strong>DoorWay</Strong><br>
+                            Es el nombre de nuestro Software.
+                            Es un software de gestión de inventario, se encarga de facturar, cualquier tipo de compra,
+                            de guardar los datos de los productos de los cliente y generar reportes en PDF, de las
+                            ventas por días, mensual, o incluso anual</div>
                     </div>
-                </div>
+                    <hr>
+                    <div class='d-flex mb-4'>
+                        <div class='mr-2'>2.0.-</div>
+                        <div><Strong>Cliente</Strong><br>
+                            Es el usuario que comprara artículos, es decir es el que seleccionara los productos a adquirir, se procederá a crear una lista de compras con los artículos que el cliente escogió, luego, se realizara el pago por cada uno de ellos</div>
+                            </div>
+                            <hr>
+                    <div class='d-flex mb-4'>
+                        <div class='mr-2'>2.1.-</div>
+                        <div><Strong>Agregar</Strong><br>
+                            Esta opción tiene como función agregar nuevos clientes al Sistema. </div>
+                    </div>
+                    <hr>
+                    <div class='d-flex mb-4'>
+                        <div class='mr-2'>2.2.-</div>
+                        <div><Strong>Lista de Clientes</Strong><br>
+                            Es una lista de todos los clientes guardados en la base de datos, aqui se pueden editar y eliminar dichos clientes</div>
+                    </div>
+                    <hr>
+                    <div class='d-flex mb-4'>
+                        <div class='mr-2'>3.0.-</div>
+                        <div><Strong>Facturación</Strong><br>
+                            La Facturación es donde están los productos que el cliente adquirió o compro, el monto pagado y la fecha, hora de cuando se efectuó la compra</div>
+                    </div>
+                    <hr>
+                    <div class='d-flex mb-4'>
+                        <div class='mr-2'>3.1.-</div>
+                        <div><Strong>Nuevo</Strong><br>
+                            Esta opción permite crear una nueva factura.</div>
+                    </div>
+                    <hr>
+                    <div class='d-flex mb-4'>
+                        <div class='mr-2'>3.2.-</div>
+                        <div><Strong>Anular</Strong><br>
+                            Al hacer clic en esta opción se anulara la factura elegida y los productos que el cliente haya escogido.</div>
+                    </div>
+                    <hr>
+                    <div class='d-flex mb-4'>
+                        <div class='mr-2'>4.0.-</div>
+                        <div> <Strong>Reporte</Strong> <br>
+                            Reporte dde todas las facturas producidas</div>
+                    </div>
+                    <hr>
+                    <div class='d-flex mb-4'>
+                        <div class='mr-2'>4.1.-</div>
+                        <div> <Strong>Reporte</Strong> <br>
+                            En el reporte se pueden ver las ventas hechas ya sea en el Mes, o en el Día, o incluso de forma Anual, este reporte será generado en un archivo PDF.</div>
+                    </div>
+                    <hr>
+                    <div class='d-flex mb-4'>
+                        <div class='mr-2'>5.0.-</div>
+                        <div><Strong>Inventario</Strong><br>
+                            En el Inventario podemos ver la cantidad de artículos disponibles, así como el Nombre del Artículo, Cantidades disponibles para la venta, y el Precio de Cada uno de ellos. </div>
+                    </div>
+                    <hr>
+                    <div class='d-flex mb-4'>
+                        <div class='mr-2'>5.1.-</div>
+                        <div><Strong>Añadir Producto</Strong><br>
+                            Opción que permite añadir un nuevo producto al Inventario y la Base de Datos, aquí se necesitarían introducir el precio del producto y sus cantidades disponibles. </div>
+                    </div>
+                    <hr>
+                    <div class='d-flex mb-4'>
+                        <div class='mr-2'>5.2.-</div>
+                        <div><Strong>Lista de Productos</Strong><br>
+                             Es una lista de todos los productos guardados en el inventario, aqui se pueden editar y eliminar dichos productos</div>
+                    </div>
+                    <hr>
+                    <div class='d-flex mb-4'>
+                        <div class='mr-2'>5.3.-</div>
+                        <div><Strong>Crear Orden de Compra</Strong><br>
+                            Opción que permite crear una nueva orden de compra para compras productos y añadirlos al inventario </div>
+                    </div>
+                    <hr>
+                    <div class='d-flex mb-4'>
+                        <div class='mr-2'>5.4.-</div>
+                        <div><Strong>Manejar Órdenes de Compra</Strong><br>
+                            Consiste en manejar las ordenes de compras ya creadas, al efectuarse la compra se le añadirá la cantidad del producto.</div>
+                    </div>
+                    <hr>
+                    <div class='d-flex mb-4'>
+                        <div class='mr-2'>6.0.-</div>
+                        <div><Strong>Ayuda</Strong><br>
+                            Ofrece una ayuda para el cajero, trabajador de cómo usar este Software, también incluye la función de Acerca de, Manual de usuario </div>
+                    </div>
+                    <hr>
+                    <div class='d-flex mb-4'>
+                        <div class='mr-2'>6.1.-</div>
+                        <div><Strong>Manual de usuario</Strong><br>
+                            En esta vista estan explicadas todas las secciones de la aplicacion</div>
+                    </div>
+                    <hr>
+                    <div class='d-flex mb-4'>
+                        <div class='mr-2'>6.2.-</div>
+                        <div><Strong>Acerca de..</Strong><br>
+                            Se pueden ver la versión del Software, y el Nombre de los Creadores así como el Nombre del Software. </div>
+                    </div>
 
-                <div class=" container table-responsive">
-                    <table class="table table-striped table-sm table-bordered table-hover">
-                        <thead>
-                            <tr class="thead-dark">
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>joined</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                                <td>ipsum</td>
-                                <td>dolor</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,002</td>
-                                <td>amet</td>
-                                <td>consectetur</td>
-                                <td>adipiscing</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,003</td>
-                                <td>Integer</td>
-                                <td>nec</td>
-                                <td>odio</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,003</td>
-                                <td>libero</td>
-                                <td>Sed</td>
-                                <td>cursus</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,004</td>
-                                <td>dapibus</td>
-                                <td>diam</td>
-                                <td>Sed</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,005</td>
-                                <td>Nulla</td>
-                                <td>quis</td>
-                                <td>sem</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,006</td>
-                                <td>nibh</td>
-                                <td>elementum</td>
-                                <td>imperdiet</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,007</td>
-                                <td>sagittis</td>
-                                <td>ipsum</td>
-                                <td>Praesent</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,008</td>
-                                <td>Fusce</td>
-                                <td>nec</td>
-                                <td>tellus</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,009</td>
-                                <td>augue</td>
-                                <td>semper</td>
-                                <td>porta</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,010</td>
-                                <td>massa</td>
-                                <td>Vestibulum</td>
-                                <td>lacinia</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>1,011</td>
-                                <td>eget</td>
-                                <td>nulla</td>
-                                <td>Class</td>
-                                <td>
-                                    <div>
-                                        <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
-                                        <button type="button"
-                                            class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+
                 </div>
             </main>
         </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-    <script src="../../javascript/Charts/dashboard.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+        <script src="../../javascript/Charts/dashboard.js"></script>
 </body>
 
 </html>
