@@ -13,7 +13,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/layout.css" rel="stylesheet">
+    <link href="../../css/layout.css" rel="stylesheet">
 </head>
 
 <body>
@@ -37,12 +37,12 @@
                 <div class="sidebar-sticky pt-3">
                     <ul class="nav pb-5  flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/">
+                            <a class="nav-link" href="/">
                                 <span data-feather="home"></span>
-                                Inicio <span class="sr-only">(current)</span>
+                                Inicio 
                             </a>
                         </li>
-
+        
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                             <span>Cliente</span>
@@ -50,58 +50,56 @@
                                 <span data-feather="plus-circle"></span>
                             </a>
                         </h6>
-
+        
                         <li class="nav-item">
-                            <a class="nav-link" href="/cliente/crear" target=>
-                                <span data-feather="file"></span>
-                                Añadir cliente
+                            <a class="nav-link " href="/cliente/crear" target=>
+                                <span data-feather="plus"></span>
+                                Añadir cliente 
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/cliente">
-                                <span data-feather="shopping-cart"></span>
+                                <span data-feather="list"></span>
                                 Lista de Clientes
                             </a>
                         </li>
-
+        
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                             <span>Facturacion</span>
-                            <a class="d-flex align-items-center text-muted" href="#" aria-label="Check in">
+                            <a class="d-flex align-items-center text-muted" href="/facturacion" aria-label="Check in">
                                 <span data-feather="plus-circle"></span>
                             </a>
                         </h6>
-
+        
                         <li class="nav-item">
                             <a class="nav-link" href="/facturacion">
                                 <span data-feather="shopping-cart"></span>
                                 Nuevo
                             </a>
                         </li>
-
+        
                         <li class="nav-item">
-                            <a class="nav-link" href="/facturacion">
-                                <span data-feather="bar-chart-2"></span>
+                            <a class="nav-link" href="/facturacion/anular">
+                                <span data-feather="x-square"></span>
                                 Anular
                             </a>
                         </li>
-
+        
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                             <span>Reportes</span>
-                            <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-                                <span data-feather="plus-circle"></span>
-                            </a>
-                        </h6>
 
+                        </h6>
+        
                         <li class="nav-item">
                             <a class="nav-link" href="/reportes">
-                                <span data-feather="shopping-cart"></span>
+                                <span data-feather="bar-chart"></span>
                                 Reportes
                             </a>
                         </li>
-
-
+        
+        
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                             <span>Inventario</span>
@@ -109,7 +107,7 @@
                                 <span data-feather="plus-circle"></span>
                             </a>
                         </h6>
-
+        
                         <li class="nav-item">
                             <a class="nav-link" href="/inventario/crear-producto">
                                 <span data-feather="plus"></span>
@@ -124,50 +122,44 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/inventario/crear-orden-de-compra">
-                                <span data-feather="bar-chart-2"></span>
+                                <span data-feather="check-square"></span>
                                 Crear orden de compra
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/inventario/manejar-ordenes">
-                                <span data-feather="bar-chart-2"></span>
+                                <span data-feather="list"></span>
                                 Manejar ordennes de compra
                             </a>
                         </li>
-
+        
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                             <span>Mantenimiento</span>
                         </h6>
-
+        
                         <li class="nav-item">
                             <a class="nav-link" href="/mantenimiento">
-                                <span data-feather="bar-chart-2"></span>
-                                Respaldo
+                                <span data-feather="database"></span>
+                                Respaldos
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/mantenimiento">
-                                <span data-feather="bar-chart-2"></span>
-                                Restaurar
-                            </a>
-                        </li>
-
+        
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                             <span>Ayuda</span>
                         </h6>
-
+        
                         <li class="nav-item">
-                            <a class="nav-link" href="/ayuda">
-                                <span data-feather="bar-chart-2"></span>
+                            <a class="nav-link" href="/ayuda/manual-de-usuario">
+                                <span data-feather="book"></span>
                                 Manual de usuario
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/ayuda">
-                                <span data-feather="bar-chart-2"></span>
-                                Acerca de...
+                            <a class="nav-link active" href="/ayuda/acerca-de">
+                                <span data-feather="book-open"></span>
+                                Acerca de... <span class="sr-only">(current)</span>
                             </a>
                         </li>
                 </div>
@@ -213,7 +205,7 @@
                                 <td>
                                     <div>
                                         <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="bar-chart-2"></span></button>
+                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
                                         <button type="button"
                                             class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
                                     </div>
@@ -227,7 +219,7 @@
                                 <td>
                                     <div>
                                         <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="bar-chart-2"></span></button>
+                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
                                         <button type="button"
                                             class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
                                     </div>
@@ -241,7 +233,7 @@
                                 <td>
                                     <div>
                                         <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="bar-chart-2"></span></button>
+                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
                                         <button type="button"
                                             class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
                                     </div>
@@ -255,7 +247,7 @@
                                 <td>
                                     <div>
                                         <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="bar-chart-2"></span></button>
+                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
                                         <button type="button"
                                             class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
                                     </div>
@@ -269,7 +261,7 @@
                                 <td>
                                     <div>
                                         <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="bar-chart-2"></span></button>
+                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
                                         <button type="button"
                                             class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
                                     </div>
@@ -283,7 +275,7 @@
                                 <td>
                                     <div>
                                         <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="bar-chart-2"></span></button>
+                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
                                         <button type="button"
                                             class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
                                     </div>
@@ -297,7 +289,7 @@
                                 <td>
                                     <div>
                                         <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="bar-chart-2"></span></button>
+                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
                                         <button type="button"
                                             class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
                                     </div>
@@ -311,7 +303,7 @@
                                 <td>
                                     <div>
                                         <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="bar-chart-2"></span></button>
+                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
                                         <button type="button"
                                             class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
                                     </div>
@@ -325,7 +317,7 @@
                                 <td>
                                     <div>
                                         <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="bar-chart-2"></span></button>
+                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
                                         <button type="button"
                                             class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
                                     </div>
@@ -339,7 +331,7 @@
                                 <td>
                                     <div>
                                         <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="bar-chart-2"></span></button>
+                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
                                         <button type="button"
                                             class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
                                     </div>
@@ -353,7 +345,7 @@
                                 <td>
                                     <div>
                                         <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="bar-chart-2"></span></button>
+                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
                                         <button type="button"
                                             class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
                                     </div>
@@ -367,7 +359,7 @@
                                 <td>
                                     <div>
                                         <button type="button"
-                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="bar-chart-2"></span></button>
+                                            class="btn btn-outline-primary btn-sm m-0 waves-effect"><span data-feather="x-square"></span></button>
                                         <button type="button"
                                             class="btn btn-outline-danger btn-sm m-0 waves-effect"><span data-feather="shopping-cart"></span></button>
                                     </div>
@@ -385,7 +377,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-    <script src="../javascript/Charts/dashboard.js"></script>
+    <script src="../../javascript/Charts/dashboard.js"></script>
 </body>
 
 </html>
