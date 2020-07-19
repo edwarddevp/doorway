@@ -32,18 +32,18 @@ window.onload = function() {
 submitDate.addEventListener('click', () => {
     if(selectDate.value === 'today'){
         const today = new Date();
-        const date =today.getFullYear()+'-'+(today.getMonth())+'-'+today.getDate();
+        const date =today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         submitDates(date,date)
     }
     if (selectDate.value === 'month'){
         const today = new Date();
-        const firstDay = today.getFullYear()+'-'+(today.getMonth())+'-'+1;
-        const date = today.getFullYear()+'-'+(today.getMonth())+'-'+today.getDate();
+        const firstDay = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+1;
+        const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         submitDates(firstDay,date)
     }
     if (selectDate.value === 'year'){
         const today = new Date();
-        const FirstDay = today.getFullYear()+'-'+0+'-'+1;
+        const FirstDay = today.getFullYear()+'-'+1+'-'+1;
         const date =today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         submitDates(FirstDay,date)
 
@@ -68,5 +68,4 @@ const submitDates = async (initialDate,finalDate) =>{
     loadingExport.classList.add('display-none')
     exportButton.href =resJson
     exportButton.download = 'report.pdf';
-    console.log(resJson)
 }

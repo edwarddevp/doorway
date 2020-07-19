@@ -1,42 +1,83 @@
-const name = document.getElementById('name')
+const selectProductos = document.getElementById('selectProductos')
+const fechaDeEntrega = document.getElementById('fechaDeEntrega')
 const cantidad = document.getElementById('cantidad')
-const serial = document.getElementById('serial')
-const description = document.getElementById('description')
 const submitButton = document.getElementById('submit')
-const form = document.getElementById('edit-product-form')
+const form = document.getElementById('edit-user-form')
 const buttonLoading = document.getElementById('buttonLoading')
+
+
+const fillSelectroduct = async (id,fecha) => {
+    const today = new Date()
+    const day = today.getDate() > 9? today.getDate() : '0'+today.getDate()
+    const month = today.getMonth() +1 > 9? today.getMonth()+1 : '0'+(today.getMonth()+1)
+    const date = today.getFullYear()+'-'+month +'-'+day;
+    
+    fechaDeEntrega.setAttribute('min',date)
+
+    const fechaDeEntregaActual = new Date(fecha)
+    const dayActual = fechaDeEntregaActual.getDate() > 9? fechaDeEntregaActual.getDate() : '0'+fechaDeEntregaActual.getDate()
+    const monthActual = fechaDeEntregaActual.getMonth() +1 > 9? fechaDeEntregaActual.getMonth()+1 : '0'+(fechaDeEntregaActual.getMonth()+1)
+    const dateActual = fechaDeEntregaActual.getFullYear()+'-'+monthActual +'-'+dayActual;
+
+    fechaDeEntrega.value = dateActual
+
+    fetch('http://localhost:3000/product-list')
+        .then(res=>res.json())
+        .then(res=>{
+            res.map(item=>{
+                const optionProduct = document.createElement("option"); 
+                optionProduct.setAttribute('value',item.id)
+                id == item.id && optionProduct.setAttribute('selected','')
+                optionProduct.innerHTML = item.nombre
+
+                selectProductos.appendChild(optionProduct)
+            })
+            
+
+        })
+
+}
 
 
 submitButton.addEventListener('click',(e)=>{
     e.preventDefault()
     if (form.checkValidity() === false) {
         event.stopPropagation();
-        console.log('hola')
     }else{
-        console.log('name: ' + name.value)
-        console.log('cantidad: ' + cantidad.value)
-        console.log('serial: ' + serial.value)
-        console.log('description: ' + description.value)
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        fetch('http://localhost:3000/orden-update',{
+            method: 'POST',
+            body: JSON.stringify({
+                id:id,
+                selectProductos:selectProductos.value,
+                fechaDeEntrega:fechaDeEntrega.value,
+                cantidad:cantidad.value
+            }), 
+            headers:{
+              'Content-Type': 'application/json'
+            }}).then(res=>res.json())
+            .then(resJson=>{
+                alert(resJson)
+                if(resJson!=='Formulario Llenado Incorrectamente')
+                window.location.replace("/inventario/manejar-ordenes")
+            })
+            .catch((err)=>err)
     }
     form.classList.add('was-validated');
 })
 
 
-window.addEventListener('load', function () {
+window.addEventListener('load', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
     
-    const producto ={
-        name:'producto',
-        cantidad:'45',
-        serial:'12457895563',
-        description:'asdsadxsacsajbcjsahb'
-    }
+    const res = await fetch('http://localhost:3000/orden-get/'+id)
+    const resJson = await res.json()
 
-    name.value = producto.name
-    cantidad.value = producto.cantidad
-    serial.value = producto.serial
-    description.value = producto.description
+    fillSelectroduct(resJson.idProducto,resJson.fechaEntrega)
+
+    cantidad.value = resJson.cantidad
 
     submitButton.toggleAttribute('disabled')
     buttonLoading.classList.add('display-none')

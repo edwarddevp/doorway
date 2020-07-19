@@ -26,7 +26,7 @@
         
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Sign out</a>
+                <a id='sign-out' class="nav-link" href="#">Sign out</a>
             </li>
         </ul>
     </nav>
@@ -42,7 +42,7 @@
                                 Inicio 
                             </a>
                         </li>
-
+        
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                             <span>Cliente</span>
@@ -50,68 +50,56 @@
                                 <span data-feather="plus-circle"></span>
                             </a>
                         </h6>
-
+        
                         <li class="nav-item">
-                            <a class="nav-link active" href="/cliente/crear" target=>
-                                <span data-feather="file"></span>
-                                Añadir cliente <span class="sr-only">(current)</span>
+                            <a class="nav-link " href="/cliente/crear" target=>
+                                <span data-feather="plus"></span>
+                                Añadir cliente 
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/cliente">
-                                <span data-feather="shopping-cart"></span>
+                                <span data-feather="list"></span>
                                 Lista de Clientes
                             </a>
                         </li>
-
+        
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                             <span>Facturacion</span>
-                            <a class="d-flex align-items-center text-muted" href="#" aria-label="Check in">
+                            <a class="d-flex align-items-center text-muted" href="/facturacion" aria-label="Check in">
                                 <span data-feather="plus-circle"></span>
                             </a>
                         </h6>
-
+        
                         <li class="nav-item">
                             <a class="nav-link" href="/facturacion">
                                 <span data-feather="shopping-cart"></span>
                                 Nuevo
                             </a>
                         </li>
+        
                         <li class="nav-item">
-                            <a class="nav-link" href="/facturacion">
-                                <span data-feather="users"></span>
-                                Consultar
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/facturacion">
-                                <span data-feather="bar-chart-2"></span>
+                            <a class="nav-link" href="/facturacion/anular">
+                                <span data-feather="x-square"></span>
                                 Anular
                             </a>
                         </li>
-
+        
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                             <span>Reportes</span>
-                            <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-                                <span data-feather="plus-circle"></span>
-                            </a>
-                        </h6>
 
+                        </h6>
+        
                         <li class="nav-item">
                             <a class="nav-link" href="/reportes">
-                                <span data-feather="shopping-cart"></span>
+                                <span data-feather="bar-chart"></span>
                                 Reportes
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/reportes">
-                                <span data-feather="bar-chart-2"></span>
-                                Reimprimir una factura
-                            </a>
-                        </li>
-
+        
+        
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                             <span>Inventario</span>
@@ -119,11 +107,11 @@
                                 <span data-feather="plus-circle"></span>
                             </a>
                         </h6>
-
+        
                         <li class="nav-item">
-                            <a class="nav-link" href="/inventario/crear-producto">
+                            <a class="nav-link active" href="/inventario/crear-producto">
                                 <span data-feather="plus"></span>
-                                Añadir producto
+                                Añadir producto <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -134,49 +122,43 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/inventario/crear-orden-de-compra">
-                                <span data-feather="bar-chart-2"></span>
+                                <span data-feather="check-square"></span>
                                 Crear orden de compra
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/inventario/manejar-ordenes">
-                                <span data-feather="bar-chart-2"></span>
+                                <span data-feather="list"></span>
                                 Manejar ordennes de compra
                             </a>
                         </li>
-
+        
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                             <span>Mantenimiento</span>
                         </h6>
-
+        
                         <li class="nav-item">
                             <a class="nav-link" href="/mantenimiento">
-                                <span data-feather="bar-chart-2"></span>
-                                Respaldo
+                                <span data-feather="database"></span>
+                                Respaldos
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/mantenimiento">
-                                <span data-feather="bar-chart-2"></span>
-                                Restaurar
-                            </a>
-                        </li>
-
+        
                         <h6
                             class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                             <span>Ayuda</span>
                         </h6>
-
+        
                         <li class="nav-item">
-                            <a class="nav-link" href="/ayuda">
-                                <span data-feather="bar-chart-2"></span>
+                            <a class="nav-link" href="/ayuda/manual-de-usuario">
+                                <span data-feather="book"></span>
                                 Manual de usuario
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/ayuda">
-                                <span data-feather="bar-chart-2"></span>
+                            <a class="nav-link" href="/ayuda/acerca-de">
+                                <span data-feather="book-open"></span>
                                 Acerca de...
                             </a>
                         </li>
@@ -201,10 +183,10 @@
                               </div>
                           </div>
                           <div class="form-group">
-                            <label for="serial">Serial</label>
-                            <input type="number" required class="form-control" id="serial" placeholder="Serial">
+                            <label for="precio">Precio</label>
+                            <input type="number" required class="form-control" id="precio" placeholder="Serial">
                             <div class="invalid-feedback">
-                                Por favor ingrese el serial del producto
+                                Por favor ingrese el precio del producto
                               </div>
                           </div>
                         <div class="form-group">
@@ -215,7 +197,10 @@
                         <p>
                             Si desea añadir a la cantidad por favor ir a la seccion de <a href='/inventario/crear-orden-de-compra/'>crear orden de compra</a>
                           </p>
-                        <button id='submit' type="submit" class="btn btn-primary">Crear Producto</button>
+                          <button id='submit' type="submit" class="btn btn-primary d-flex align-items-center" disabled>
+                            <div id='buttonLoading' class="spinner-border spinner-border-sm mr-2"  role="status">
+                                <span class="sr-only">Loading...</span>
+                              </div>Guardar Cambios</button>
                       </form>
                 </div>
             </main>

@@ -117,3 +117,7 @@ body {
 .display-none{
   display: none !important;
 }
+
+.border-red{
+  border: 2px solid red !important;
+}
