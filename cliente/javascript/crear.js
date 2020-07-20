@@ -11,7 +11,7 @@ submitButton.addEventListener('click',(e)=>{
         event.stopPropagation();
         console.log('hola')
     }else{
-        fetch('http://localhost:3000/client-create',{
+        fetch('https://doorway-api.herokuapp.com/client-create',{
             method: 'POST',
             body: JSON.stringify({
                 nombre:name.value,
@@ -24,8 +24,12 @@ submitButton.addEventListener('click',(e)=>{
             }}).then(res=>res.json())
             .then(resJson=>{
                 alert(resJson)
-                if(resJson!=='Formulario Llenado Incorrectamente')
-                window.location.replace("/cliente");
+                if(resJson!=='Formulario Llenado Incorrectamente' || resJson !== 'No se ha podido registrar el cliente'){
+                    window.location.replace("/cliente");
+                }
+                else {
+                    alert(resJson)
+                }
             })
     }
     form.classList.add('was-validated');

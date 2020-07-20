@@ -58,7 +58,7 @@ const submitDates = async (initialDate,finalDate) =>{
     fillTable(initialDate,finalDate)
     loadingExport.classList.remove('display-none')
     exportButton.href ='#'
-    const res = await fetch('http://localhost:3000/report-export',{
+    const res = await fetch('https://doorway-api.herokuapp.com/report-export',{
         method: 'POST',
         body: JSON.stringify({initialDate,finalDate}), 
         headers:{

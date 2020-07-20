@@ -15,7 +15,7 @@ submitButton.addEventListener('click',(e)=>{
     }else{
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get('id');
-        fetch('http://localhost:3000/client-update',{
+        fetch('https://doorway-api.herokuapp.com/client-update',{
             method: 'POST',
             body: JSON.stringify({
                 id:id,
@@ -41,7 +41,7 @@ window.addEventListener('load', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
     
-    const res = await fetch('http://localhost:3000/client-get/'+id)
+    const res = await fetch('https://doorway-api.herokuapp.com/client-get/'+id)
     const resJson = await res.json()
 
 

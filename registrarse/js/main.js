@@ -53,7 +53,7 @@ const validarFormularioRegistro = async (e) => {
     const contraseñaConfirmar = validarConfirmar()
     if(correoValidacion && contraseñaValidacion && correoNombre&& contraseñaConfirmar){
         try{
-            const res = await fetch('http://localhost:3000/register', {
+            const res = await fetch('https://doorway-api.herokuapp.com/register', {
                 method: 'POST',
                 body: JSON.stringify({ 
                     email:correo.value,
@@ -66,7 +66,6 @@ const validarFormularioRegistro = async (e) => {
             })
             const resJson = await res.json();
     
-            console.log(typeof resJson)
             if(typeof resJson !== 'string'){
                 document.cookie = "login_token_id="+resJson+'; path=/';
                 window.location.replace("/");

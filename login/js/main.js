@@ -29,7 +29,7 @@ const validarFormularioRegistro = async (e) => {
     const contraseñaValidacion = validarContraseña()
     if(correoValidacion && contraseñaValidacion){
         try{
-            const res = await fetch('http://localhost:3000/signin', {
+            const res = await fetch('https://doorway-api.herokuapp.com/signin', {
                 method: 'POST',
                 body: JSON.stringify({ 
                     email:correo.value,

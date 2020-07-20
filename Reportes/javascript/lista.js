@@ -21,7 +21,7 @@ const fillTable = async (initialDate,finalDate) => {
         tbody.removeChild(tbody.lastChild);
     }
 
-    const res = await fetch('http://localhost:3000/report-list',{
+    const res = await fetch('https://doorway-api.herokuapp.com/report-list',{
         method: 'POST',
         body: JSON.stringify({initialDate,finalDate}), 
         headers:{
@@ -34,22 +34,20 @@ const fillTable = async (initialDate,finalDate) => {
     if(resJson.length > 0) {
           resJson.map((item)=>{
         const regex = /,/gi;
-        const nombreProductos = item.productosNombres.split(',')
-        const precioProductos = item.productosPrecios.split(',')
-        const productos = nombreProductos.map((nombre,index)=>nombre+' '+precioProductos[index]+'$\n').join().replace(regex,'')
+        const productos = item.productosnombres.map((nombre,index)=>nombre+' '+item.productosprecios[index]+'$\n').join().replace(regex,'')
 
-        const today = new Date(item.fecha);
+        const today = new Date(item.fecha[0]);
         const date = today.getFullYear() + '-' + (today.getMonth() +1) + '-' + today.getDate();
 
         const newtr = document.createElement("tr"); 
         const tdId = document.createElement("td"); 
         tdId.innerHTML = item.id
         const tdName = document.createElement("td"); 
-        tdName.innerHTML = item.nombreCliente
+        tdName.innerHTML = item.nombrecliente[0]
         const tdIdNumber = document.createElement("td"); 
-        tdIdNumber.innerHTML = item.cedulaCliente
+        tdIdNumber.innerHTML = item.cedulacliente[0]
         const tdEmail = document.createElement("td"); 
-        tdEmail.innerHTML = item.correoCliente
+        tdEmail.innerHTML = item.correocliente[0]
         const tdProducts = document.createElement("td"); 
         tdProducts.innerHTML = productos
         const tdDate = document.createElement("td"); 

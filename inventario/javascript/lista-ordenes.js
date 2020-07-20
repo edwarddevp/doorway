@@ -9,7 +9,7 @@ window.onload = function () {
 
 const remove = async (item) => {
     if (confirm('De verdad que quieres eliminar este item?\nno lo podras recuperar una vez eliminado')) {
-        const res = await fetch('http://localhost:3000/orden-remove', {
+        const res = await fetch('https://doorway-api.herokuapp.com/orden-remove', {
             method: 'POST',
             body: JSON.stringify({ id: item.id }),
             headers: {
@@ -38,15 +38,15 @@ const fillTable = async () => {
         tbody.removeChild(tbody.lastChild);
     }
 
-    const res = await fetch('http://localhost:3000/orden-list')
+    const res = await fetch('https://doorway-api.herokuapp.com/orden-list')
     const resJson = await res.json();
 
     if (resJson.length > 0) {
         resJson.map((item) => {
-            const creation = new Date(item.fechaCreacion)
+            const creation = new Date(item.fechacreacion)
             const creationDate = creation.getFullYear() + '-' + (creation.getMonth() + 1) + '-' + creation.getDate();
 
-            const deliver = new Date(item.fechaEntrega)
+            const deliver = new Date(item.fechaentrega)
             const deliverDate = deliver.getFullYear() + '-' + (deliver.getMonth() + 1) + '-' + deliver.getDate();
 
             const newtr = document.createElement("tr");

@@ -10,7 +10,7 @@ window.onload = function() {
 
 const remove = async (client) => {
     if(confirm('De verdad que quieres eliminar este cliente?\nno lo podras recuperar una vez eliminado')){
-        const res = await fetch('http://localhost:3000/client-remove',{
+        const res = await fetch('https://doorway-api.herokuapp.com/client-remove',{
             method: 'POST',
             body: JSON.stringify({id:client.id}), 
             headers:{
@@ -41,7 +41,7 @@ const fillTable = async () => {
         tbody.removeChild(tbody.lastChild);
     }
 
-    const res = await fetch('http://localhost:3000/client-list')
+    const res = await fetch('https://doorway-api.herokuapp.com/client-list')
     const resJson = await res.json();
 
     if(resJson.length > 0) {

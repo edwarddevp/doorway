@@ -14,7 +14,7 @@ window.onload = async () => {
     const date = today.getFullYear()+'-'+month +'-'+day;
     
     fechaDeEntrega.setAttribute('min',date)
-    fetch('http://localhost:3000/product-list')
+    fetch('https://doorway-api.herokuapp.com/product-list')
         .then(res=>res.json())
         .then(res=>{
             res.map(item=>{
@@ -37,7 +37,7 @@ submitButton.addEventListener('click',(e)=>{
     if (form.checkValidity() === false && !(Date.value > new Date)) {
         event.stopPropagation();
     }else{
-        fetch('http://localhost:3000/orden-create',{
+        fetch('https://doorway-api.herokuapp.com/orden-create',{
             method: 'POST',
             body: JSON.stringify({
                 idProducto:productoId.value,

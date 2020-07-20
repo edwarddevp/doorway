@@ -9,7 +9,7 @@ window.onload = function() {
 
 const remove = async (item) => {
     if(confirm('De verdad que quieres eliminar este item?\nno lo podras recuperar una vez eliminado')){
-        const res = await fetch('http://localhost:3000/product-remove',{
+        const res = await fetch('https://doorway-api.herokuapp.com/product-remove',{
             method: 'POST',
             body: JSON.stringify({id:item.id}), 
             headers:{
@@ -37,7 +37,7 @@ const fillTable = async () => {
         tbody.removeChild(tbody.lastChild);
     }
 
-    const res = await fetch('http://localhost:3000/product-list')
+    const res = await fetch('https://doorway-api.herokuapp.com/product-list')
     const resJson = await res.json();
 
     if(resJson.length > 0) {

@@ -20,7 +20,7 @@ let itemsChosen = [];
 buscarCliente.addEventListener("click", async () => {
     clientData.innerHTML = ""
     if (inputCliente.value) {
-        const res = await fetch('http://localhost:3000/client-find', {
+        const res = await fetch('https://doorway-api.herokuapp.com/client-find', {
             method: 'POST',
             body: JSON.stringify({
                 search: inputCliente.value,
@@ -31,7 +31,7 @@ buscarCliente.addEventListener("click", async () => {
         })
         resCheckClient = await res.json();
 
-        if (resCheckClient !== "Cliente no encontrado") {
+        if (typeof resCheckClient !== 'string') {
             clientData.classList.add('border')
             clientData.classList.add('p-2')
             clientData.classList.add('mb-2')
@@ -68,7 +68,7 @@ window.onload = function () {
 };
 
 const fillSelect = async () => {
-    const res = await fetch('http://localhost:3000/product-list')
+    const res = await fetch('https://doorway-api.herokuapp.com/product-list')
     resJson = await res.json();
     submitButton.toggleAttribute('disabled')
     buttonLoading.classList.add('display-none')
@@ -190,7 +190,7 @@ const fillTable = async (resJson = [], items = []) => {
         const tdTotal = document.createElement("td");
         tdTotal.innerHTML = "Total:"
         const tdTotalSum = document.createElement("td");
-        tdTotalSum.innerHTML = itemsChosen.reduce((a, value) => a + value.precio, 0) + '$'
+        tdTotalSum.innerHTML = itemsChosen.reduce((a, value) => a + parseInt(value.precio), 0) + '$'
 
         newtr.appendChild(tdEmpty1);
         newtr.appendChild(tdEmpty2);
@@ -226,7 +226,7 @@ submitButton.addEventListener("click", async (e) => {
     if (resCheckClient) {
         if (itemsChosen.length > 0) {
             if (confirm("Seguro que desea generar una factura con estos datos?")) {
-                const res = await fetch('http://localhost:3000/factura-create', {
+                const res = await fetch('https://doorway-api.herokuapp.com/factura-create', {
                     method: 'POST',
                     body: JSON.stringify({
                         idCliente: resCheckClient.id,
@@ -237,7 +237,10 @@ submitButton.addEventListener("click", async (e) => {
                     }
                 })
                 resCheckClient = await res.json();
-
+                if(resCheckClient === "Factura Realizada con exito"){
+                    alert(resCheckClient)
+                    window.location.replace("/facturacion");
+                }
 
             }
         } else {

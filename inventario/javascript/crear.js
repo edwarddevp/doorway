@@ -10,7 +10,7 @@ submitButton.addEventListener('click',(e)=>{
     if (form.checkValidity() === false) {
         event.stopPropagation();
     }else{
-        fetch('http://localhost:3000/product-create',{
+        fetch('https://doorway-api.herokuapp.com/product-create',{
             method: 'POST',
             body: JSON.stringify({
                 nombre:name.value,

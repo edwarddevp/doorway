@@ -21,7 +21,7 @@ const fillSelectroduct = async (id,fecha) => {
 
     fechaDeEntrega.value = dateActual
 
-    fetch('http://localhost:3000/product-list')
+    fetch('https://doorway-api.herokuapp.com/product-list')
         .then(res=>res.json())
         .then(res=>{
             res.map(item=>{
@@ -46,12 +46,12 @@ submitButton.addEventListener('click',(e)=>{
     }else{
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get('id');
-        fetch('http://localhost:3000/orden-update',{
+        fetch('https://doorway-api.herokuapp.com/orden-update',{
             method: 'POST',
             body: JSON.stringify({
                 id:id,
-                selectProductos:selectProductos.value,
-                fechaDeEntrega:fechaDeEntrega.value,
+                idProducto:selectProductos.value,
+                fechaEntrega:fechaDeEntrega.value,
                 cantidad:cantidad.value
             }), 
             headers:{
@@ -72,7 +72,7 @@ window.addEventListener('load', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
     
-    const res = await fetch('http://localhost:3000/orden-get/'+id)
+    const res = await fetch('https://doorway-api.herokuapp.com/orden-get/'+id)
     const resJson = await res.json()
 
     fillSelectroduct(resJson.idProducto,resJson.fechaEntrega)
